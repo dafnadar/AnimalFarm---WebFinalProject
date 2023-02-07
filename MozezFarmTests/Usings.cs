@@ -1,0 +1,9 @@
+global using Microsoft.VisualStudio.TestTools.UnitTesting;
+global using Microsoft.AspNetCore.Builder;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.Extensions.DependencyInjection;
+global using MozesFarmWebsite.Data;
+global using MozesFarmWebsite.Repositories;
+global using WebProject.Models;
+global using WebProject.Repositories;
+global using MozesFarmWebsite.Models.LoggersModels;

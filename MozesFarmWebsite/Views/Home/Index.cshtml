@@ -1,0 +1,24 @@
+﻿@model IEnumerable<WebProject.Models.Animal>
+@{
+	ViewBag.Title = "Home Page";
+}
+
+<article class="text-center">
+	<h1 class="display-4">Most Popular Animals in Moses Farm</h1>
+
+	<div class="card-group">
+		@foreach (var animal in Model)
+		{
+			<div class="card border-secondary mb-3" style="width: 18rem; height: 34rem;">
+				<img src="/images/@animal.PictureName" alt="Sorry, no picture" class="card-img-top" style="height: 24rem">
+				<div class="card-body">
+					<h5 class="card-title">@animal.Name</h5>
+					<p class="card-text">@animal.Description</p>
+					<a asp-action="ShowAnimal" asp-route-id="@animal.Id" class="btn btn-primary">Read More</a>
+				</div>
+			</div>
+		}
+	</div>
+</article>
+
+

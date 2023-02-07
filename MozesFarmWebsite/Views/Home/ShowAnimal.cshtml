@@ -1,0 +1,73 @@
+﻿@using WebProject.Models
+@model WebProject.Models.Animal
+@inject MozesFarmWebsite.Services.ILogged loginControl
+
+@{
+	ViewBag.Title = "ShowAnimal";
+}
+
+<article class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4 w-auto">
+	<div class="row p-3  ">
+		<section class="col-auto justify-content-center w-75">
+			<h1>@Model.Name</h1>
+			<img src="/images/@Model.PictureName" alt="@Model.Name picture" />
+			<br />
+			@Html.DisplayNameFor(model => model.Name)
+			@Html.DisplayFor(model => model.Name)
+			<br />
+			@Html.DisplayNameFor(model => model.Age)
+			@Html.DisplayFor(model => model.Age)
+			<br />
+			@Html.DisplayNameFor(model => model.Description)
+			@Html.DisplayFor(model => model.Description)
+			<br />
+			@Html.DisplayNameFor(model => model.Category)
+			@Html.DisplayFor(model => model.Category!.Name)
+			<br />
+		</section>
+		<section class="col-auto">
+			@await Html.PartialAsync("_BackBtnPartial")
+		</section>
+	</div>
+</article>
+
+<section class="card w-75 p-3 col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-5 col-md-6 col-12 pb-5">
+				<h4>Comments</h4>
+				@foreach (var comment in @ViewBag.Comments)
+				{
+					<div class="comment mt-4 text-justify">
+						<h4>@comment.WriterName</h4>
+						<span>@comment.Date</span>
+						<br>
+						<p>@comment.CommentText</p>
+					</div>
+				}
+			</div>
+			<div class="card col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4" style="height:fit-content">
+				<h4>@ViewBag.Message</h4>
+				@if (loginControl.LoginStatus())
+				{
+					@await Html.PartialAsync("_AddCommentPartial", (Comment)@ViewBag.DemoComment)
+				}
+				else
+				{
+					<p id="loginMessage" >
+						<h5>Only users can leave a comment</h5>						
+						<partial name="_LoginPartial" />
+					</p>
+				}
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+
+
+
+

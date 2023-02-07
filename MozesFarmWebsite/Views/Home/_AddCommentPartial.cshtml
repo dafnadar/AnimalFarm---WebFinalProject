@@ -1,0 +1,18 @@
+﻿@model WebProject.Models.Comment
+
+<form name="@loginControl.GetLoggerName()" action="/Home/ShowAnimal/@Model.AnimalId" method="post">	
+	<label asp-for="WriterName"></label>
+	<br />
+	<input asp-for="WriterName" value="@loginControl.GetLoggerName()" readonly="readonly"/>
+	<br />	
+	@Html.LabelFor(a => a.CommentText)
+	@Html.EditorFor(a => a.CommentText)
+	<div class="form-group mt-2">
+		<button type="submit" class="btn-secondary btn-success">Post Comment</button>
+	</div>
+</form>
+<body>
+
+</body>
+
+
