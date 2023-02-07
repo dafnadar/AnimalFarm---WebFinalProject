@@ -1,4 +1,4 @@
-"# AnimalFarm---WebFinalProject" 
+# AnimalFarm---WebFinalProject
 Pet Shop Application - handles a simple online catalogue of a pet shop.
 
 Customers should be able to browse at the catalogue, look at individual animals and leave comments. 
